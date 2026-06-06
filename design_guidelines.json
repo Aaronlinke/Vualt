@@ -1,0 +1,85 @@
+{
+  "project": "Oasis Sultan Console v1",
+  "theme": "DARK",
+  "archetype": "7 (Electric & Neon) - Retro-Futurism / Terminal Look",
+  "typography": {
+    "primary_font": "JetBrains Mono, Roboto Mono, monospace",
+    "secondary_font": "Share Tech Mono, monospace",
+    "heading_scale": {
+      "h1": "text-2xl tracking-[0.2em] uppercase font-bold text-[#E0E0E0]",
+      "h2": "text-xl tracking-wider uppercase text-[#00FF41]",
+      "h3": "text-lg tracking-wider text-[#E0E0E0]"
+    },
+    "body_scale": "text-sm leading-tight tabular-nums text-[#808080]"
+  },
+  "colors": {
+    "background": {
+      "app": "#050505",
+      "panel": "#0A0A0A",
+      "panel_hover": "#111111"
+    },
+    "border": {
+      "default": "#222222",
+      "focus": "#00FF41",
+      "subtle": "#141414"
+    },
+    "text": {
+      "primary": "#E0E0E0",
+      "secondary": "#808080",
+      "highlight": "#00FF41",
+      "danger": "#FF003C",
+      "cyan": "#00E5FF",
+      "amber": "#FFB000"
+    }
+  },
+  "layout": {
+    "grid_system": "Control Room Grid",
+    "global_spacing": "p-4 gap-4",
+    "panel_padding": "p-4",
+    "architecture": "Grid layout with no rounded corners (rounded-none). Heavy use of border-collapse and 1px solid borders to create a technical, segmented view."
+  },
+  "components": {
+    "SwarmCommandCenter": {
+      "style": "Terminal-style input box. Background #0A0A0A, border #222222. Prefix with '>' or '$'. Focus should glow the border with #00FF41.",
+      "testid": "swarm-command-input"
+    },
+    "LiveAgentPulse": {
+      "style": "8x8 CSS Grid. gap-1. Each cell represents an agent. Active agents: border #00FF41, text #00FF41, slight bg tint. Dead agents: border #222222, text #404040. Display tiny ID and energy bar in cell if space permits.",
+      "testid": "live-agent-pulse-grid"
+    },
+    "KCUValidator": {
+      "style": "Stacked input fields. Minimalist lines. border-b only for inputs. Data readout for resonance, hash_energy should look like a CLI readout (key: value).",
+      "testid": "kcu-validator-form"
+    },
+    "SultanCoinLedger": {
+      "style": "Dense data table. border-b #222222 on rows. text-xs. tabular-nums. Monospace alignment for columns.",
+      "testid": "sultan-coin-ledger-table"
+    }
+  },
+  "motion": {
+    "interactions": "Instant or very fast (75ms). No bouncy easing. It should feel like a machine.",
+    "real_time_updates": "Briefly flash row/cell background to white or #00FF41 when data changes, then fade back to dark."
+  },
+  "accessibility": {
+    "contrast": "Ensure #808080 text on #0A0A0A background meets at least 4.5:1. Increase brightness if necessary.",
+    "reduced_motion": "Disable real-time flashes if user prefers reduced motion."
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "background_texture",
+        "url": "https://images.pexels.com/photos/12537426/pexels-photo-12537426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Abstract black metallic texture. Use as a fixed background with 5-10% opacity overlay to add depth without distracting from data."
+      }
+    ],
+    "icons": "Use lucide-react. Prefer geometric/sharp icons over rounded ones (e.g., Terminal, Activity, Key, Database)."
+  },
+  "instructions_to_main_agent": [
+    "DO NOT use Inter or rounded corners anywhere. Use rounded-none for all elements.",
+    "Implement the components exactly as styled: raw, technical, terminal-like.",
+    "Mock the WebSocket data hook. The 64 agents should have random states that update periodically.",
+    "The KCU Validator should run a mock transformation showing the 0x5F3759DF constant in the UI results.",
+    "Ensure the layout fits well on a standard 1080p desktop monitor, typical for control room dashboards.",
+    "All interactive elements MUST have data-testid attributes."
+  ]
+}
